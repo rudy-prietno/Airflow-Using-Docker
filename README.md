@@ -22,6 +22,7 @@ if you don't have account, you can create with this ways:
      after that call the python:
       - python3
         and the put this:
+        
             import airflow
             from airflow import models, settings
             from airflow.contrib.auth.backends.password_auth import PasswordUser
