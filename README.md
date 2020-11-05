@@ -19,8 +19,11 @@ for the last, in this configuration I put login admin
 if you don't have account, you can create with this ways:
 - go to access you webserver container:
    - docker exec -ti --user root webserver
+   
      after that call the python:
+     
       - python3
+      
         and the put this:
         
             import airflow
