@@ -11,7 +11,7 @@ after you run start.sh, docker-compose semi automatic running Dockerfile to buil
 and also, you can see in your folder you have "ciput_airflow" with 2 folder dags and plugins, and 1 file "airflow.cfg".
 
 So, you can put your code DAG's into folder dags and you can put code custom operator in folder plugins.
-and also, you editing airflow configuration in file "airflow.cfg".
+and also, you edit airflow configuration in file "airflow.cfg".
 
 and then, if you do something in 3 of component, if you don't show changes you must do comment "docker restart webserver scheduler workers" together in the same time.
 
