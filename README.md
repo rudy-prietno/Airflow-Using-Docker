@@ -16,7 +16,7 @@ and also, you edit airflow configuration in file "airflow.cfg".
 and then, if you do something in 3 of component, if you don't show changes you must do comment "docker restart webserver scheduler workers" together in the same time.
 
 for the last, in this configuration I put login admin
-if you don't have account, you can create with this ways:
+if you don't have account, you can create with this way:
 - go to access you webserver container:
    - docker exec -ti --user root webserver
    
