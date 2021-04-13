@@ -3,6 +3,10 @@ services:
     redis:
         image: 'redis:5.0.5'
         container_name: redis_airflow
+        environment:
+            - SET_CONTAINER_TIMEZONE=true
+            - CONTAINER_TIMEZONE=Asia/Jakarta
+            - TZ=Asia/Jakarta
         command: redis-server --requirepass redispass
 
     postgres:
@@ -13,6 +17,9 @@ services:
             - POSTGRES_PASSWORD=airflow
             - POSTGRES_DB=airflow
             - PGDATA=/var/lib/postgresql/data/pgdata
+            - SET_CONTAINER_TIMEZONE=true
+            - CONTAINER_TIMEZONE=Asia/Jakarta
+            - TZ=Asia/Jakarta
         volumes:
             - ./ciput_airflow/postgres:/var/lib/postgresql/data/pgdata
 
