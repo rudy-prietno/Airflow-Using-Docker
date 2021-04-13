@@ -33,10 +33,13 @@ services:
             - postgres
             - redis
         environment:
+            - SET_CONTAINER_TIMEZONE=true
+            - CONTAINER_TIMEZONE=Asia/Jakarta
+            - TZ=Asia/Jakarta
             - LOAD_EX=n
-            - EXECUTOR=Celery
+            - EXECUTOR=Celery  
             - POSTGRES_USER=airflow
-            - POSTGRES_PASSWORD=airflow
+            - POSTGRES_PASSWORD=airflow 
             - POSTGRES_DB=airflow
             - REDIS_PASSWORD=redispass
         volumes:
@@ -61,6 +64,9 @@ services:
         depends_on:
             - redis
         environment:
+            - SET_CONTAINER_TIMEZONE=true
+            - CONTAINER_TIMEZONE=Asia/Jakarta
+            - TZ=Asia/Jakarta
             - EXECUTOR=Celery
             - REDIS_PASSWORD=redispass
         ports:
@@ -80,13 +86,15 @@ services:
             - ./ciput_airflow/airflow/airflow.cfg:/usr/local/airflow/airflow.cfg
             - ./ciput_airflow/airflow/plugins:/usr/local/airflow/plugins
         environment:
+            - SET_CONTAINER_TIMEZONE=true
+            - CONTAINER_TIMEZONE=Asia/Jakarta
+            - TZ=Asia/Jakarta
             - LOAD_EX=n
             - EXECUTOR=Celery
             - POSTGRES_USER=airflow
             - POSTGRES_PASSWORD=airflow
             - POSTGRES_DB=airflow
-            - REDIS_PASSWORD=redispass
-
+            - REDIS_PASSWORD=redis
         command: scheduler
 
     worker:
@@ -102,6 +110,9 @@ services:
             - ./ciput_airflow/airflow/airflow.cfg:/usr/local/airflow/airflow.cfg
             - ./ciput_airflow/airflow/plugins:/usr/local/airflow/plugins
         environment:
+            - SET_CONTAINER_TIMEZONE=true
+            - CONTAINER_TIMEZONE=Asia/Jakarta
+            - TZ=Asia/Jakarta
             - EXECUTOR=Celery
             - POSTGRES_USER=airflow
             - POSTGRES_PASSWORD=airflow
@@ -122,6 +133,9 @@ services:
             - ./ciput_airflow/airflow/airflow.cfg:/usr/local/airflow/airflow.cfg
             - ./ciput_airflow/airflow/plugins:/usr/local/airflow/plugins
         environment:
+            - SET_CONTAINER_TIMEZONE=true
+            - CONTAINER_TIMEZONE=Asia/Jakarta
+            - TZ=Asia/Jakarta
             - EXECUTOR=Celery
             - POSTGRES_USER=airflow
             - POSTGRES_PASSWORD=airflow
@@ -142,6 +156,9 @@ services:
             - ./ciput_airflow/airflow/airflow.cfg:/usr/local/airflow/airflow.cfg
             - ./ciput_airflow/airflow/plugins:/usr/local/airflow/plugins
         environment:
+            - SET_CONTAINER_TIMEZONE=true
+            - CONTAINER_TIMEZONE=Asia/Jakarta
+            - TZ=Asia/Jakarta
             - EXECUTOR=Celery
             - POSTGRES_USER=airflow
             - POSTGRES_PASSWORD=airflow
@@ -162,6 +179,9 @@ services:
             - ./ciput_airflow/airflow/airflow.cfg:/usr/local/airflow/airflow.cfg
             - ./ciput_airflow/airflow/plugins:/usr/local/airflow/plugins
         environment:
+            - SET_CONTAINER_TIMEZONE=true
+            - CONTAINER_TIMEZONE=Asia/Jakarta
+            - TZ=Asia/Jakarta
             - EXECUTOR=Celery
             - POSTGRES_USER=airflow
             - POSTGRES_PASSWORD=airflow
@@ -182,6 +202,9 @@ services:
             - ./ciput_airflow/airflow/airflow.cfg:/usr/local/airflow/airflow.cfg
             - ./ciput_airflow/airflow/plugins:/usr/local/airflow/plugins
         environment:
+            - SET_CONTAINER_TIMEZONE=true
+            - CONTAINER_TIMEZONE=Asia/Jakarta
+            - TZ=Asia/Jakarta
             - EXECUTOR=Celery
             - POSTGRES_USER=airflow
             - POSTGRES_PASSWORD=airflow
@@ -205,6 +228,9 @@ services:
             - ./ciput_airflow/airflow/airflow.cfg:/usr/local/airflow/airflow.cfg
             - ./ciput_airflow/airflow/plugins:/usr/local/airflow/plugins
         environment:
+            - SET_CONTAINER_TIMEZONE=true
+            - CONTAINER_TIMEZONE=Asia/Jakarta
+            - TZ=Asia/Jakarta
             - EXECUTOR=Celery
             - POSTGRES_USER=airflow
             - POSTGRES_PASSWORD=airflow
@@ -228,6 +254,9 @@ services:
             - ./ciput_airflow/airflow/airflow.cfg:/usr/local/airflow/airflow.cfg
             - ./ciput_airflow/airflow/plugins:/usr/local/airflow/plugins
         environment:
+            - SET_CONTAINER_TIMEZONE=true
+            - CONTAINER_TIMEZONE=Asia/Jakarta
+            - TZ=Asia/Jakarta
             - EXECUTOR=Celery
             - POSTGRES_USER=airflow
             - POSTGRES_PASSWORD=airflow
@@ -251,6 +280,9 @@ services:
             - ./ciput_airflow/airflow/airflow.cfg:/usr/local/airflow/airflow.cfg
             - ./ciput_airflow/airflow/plugins:/usr/local/airflow/plugins
         environment:
+            - SET_CONTAINER_TIMEZONE=true
+            - CONTAINER_TIMEZONE=Asia/Jakarta
+            - TZ=Asia/Jakarta
             - EXECUTOR=Celery
             - POSTGRES_USER=airflow
             - POSTGRES_PASSWORD=airflow
