@@ -7,6 +7,8 @@ services:
             - SET_CONTAINER_TIMEZONE=true
             - CONTAINER_TIMEZONE=Asia/Jakarta
             - TZ=Asia/Jakarta
+        networks:
+            - airflowcluster
         command: redis-server --requirepass redispass
 
     postgres:
@@ -22,6 +24,8 @@ services:
             - TZ=Asia/Jakarta
         volumes:
             - ./ciput_airflow/postgres:/var/lib/postgresql/data/pgdata
+        networks:
+            - airflowcluster     
 
     webserver:
         build:
@@ -46,6 +50,8 @@ services:
             - ./ciput_airflow/airflow/dags:/usr/local/airflow/dags
             - ./ciput_airflow/airflow/airflow.cfg:/usr/local/airflow/airflow.cfg
             - ./ciput_airflow/airflow/plugins:/usr/local/airflow/plugins
+        networks:
+            - airflowcluster
         ports:
             - "8083:8080"
         command: webserver
@@ -63,6 +69,8 @@ services:
         restart: always
         depends_on:
             - redis
+        networks:
+            - airflowcluster
         environment:
             - SET_CONTAINER_TIMEZONE=true
             - CONTAINER_TIMEZONE=Asia/Jakarta
@@ -85,6 +93,8 @@ services:
             - ./ciput_airflow/airflow/dags:/usr/local/airflow/dags
             - ./ciput_airflow/airflow/airflow.cfg:/usr/local/airflow/airflow.cfg
             - ./ciput_airflow/airflow/plugins:/usr/local/airflow/plugins
+        networks:
+            - airflowcluster       
         environment:
             - SET_CONTAINER_TIMEZONE=true
             - CONTAINER_TIMEZONE=Asia/Jakarta
@@ -109,6 +119,8 @@ services:
             - ./ciput_airflow/airflow/dags:/usr/local/airflow/dags
             - ./ciput_airflow/airflow/airflow.cfg:/usr/local/airflow/airflow.cfg
             - ./ciput_airflow/airflow/plugins:/usr/local/airflow/plugins
+        networks:
+            - airflowcluster
         environment:
             - SET_CONTAINER_TIMEZONE=true
             - CONTAINER_TIMEZONE=Asia/Jakarta
@@ -132,6 +144,8 @@ services:
             - ./ciput_airflow/airflow/dags:/usr/local/airflow/dags
             - ./ciput_airflow/airflow/airflow.cfg:/usr/local/airflow/airflow.cfg
             - ./ciput_airflow/airflow/plugins:/usr/local/airflow/plugins
+        networks:
+            - airflowcluster
         environment:
             - SET_CONTAINER_TIMEZONE=true
             - CONTAINER_TIMEZONE=Asia/Jakarta
@@ -155,6 +169,8 @@ services:
             - ./ciput_airflow/airflow/dags:/usr/local/airflow/dags
             - ./ciput_airflow/airflow/airflow.cfg:/usr/local/airflow/airflow.cfg
             - ./ciput_airflow/airflow/plugins:/usr/local/airflow/plugins
+        networks:
+            - airflowcluster
         environment:
             - SET_CONTAINER_TIMEZONE=true
             - CONTAINER_TIMEZONE=Asia/Jakarta
@@ -178,6 +194,8 @@ services:
             - ./ciput_airflow/airflow/dags:/usr/local/airflow/dags
             - ./ciput_airflow/airflow/airflow.cfg:/usr/local/airflow/airflow.cfg
             - ./ciput_airflow/airflow/plugins:/usr/local/airflow/plugins
+        networks:
+            - airflowcluster
         environment:
             - SET_CONTAINER_TIMEZONE=true
             - CONTAINER_TIMEZONE=Asia/Jakarta
@@ -201,6 +219,8 @@ services:
             - ./ciput_airflow/airflow/dags:/usr/local/airflow/dags
             - ./ciput_airflow/airflow/airflow.cfg:/usr/local/airflow/airflow.cfg
             - ./ciput_airflow/airflow/plugins:/usr/local/airflow/plugins
+        networks:
+            - airflowcluster
         environment:
             - SET_CONTAINER_TIMEZONE=true
             - CONTAINER_TIMEZONE=Asia/Jakarta
@@ -227,6 +247,8 @@ services:
             - ./ciput_airflow/airflow/dags:/usr/local/airflow/dags
             - ./ciput_airflow/airflow/airflow.cfg:/usr/local/airflow/airflow.cfg
             - ./ciput_airflow/airflow/plugins:/usr/local/airflow/plugins
+        networks:
+            - airflowcluster
         environment:
             - SET_CONTAINER_TIMEZONE=true
             - CONTAINER_TIMEZONE=Asia/Jakarta
@@ -253,6 +275,8 @@ services:
             - ./ciput_airflow/airflow/dags:/usr/local/airflow/dags
             - ./ciput_airflow/airflow/airflow.cfg:/usr/local/airflow/airflow.cfg
             - ./ciput_airflow/airflow/plugins:/usr/local/airflow/plugins
+        networks:
+            - airflowcluster
         environment:
             - SET_CONTAINER_TIMEZONE=true
             - CONTAINER_TIMEZONE=Asia/Jakarta
@@ -279,6 +303,8 @@ services:
             - ./ciput_airflow/airflow/dags:/usr/local/airflow/dags
             - ./ciput_airflow/airflow/airflow.cfg:/usr/local/airflow/airflow.cfg
             - ./ciput_airflow/airflow/plugins:/usr/local/airflow/plugins
+        networks:
+            - airflowcluster
         environment:
             - SET_CONTAINER_TIMEZONE=true
             - CONTAINER_TIMEZONE=Asia/Jakarta
@@ -291,3 +317,6 @@ services:
         networks:
             - airflowcluster
         command: worker
+
+networks:
+  airflowcluster:
