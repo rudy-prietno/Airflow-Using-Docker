@@ -1,6 +1,8 @@
 #Base image
 FROM python:3.6.9-slim-stretch
 
+RUN cp /usr/share/zoneinfo/Asia/Jakarta /etc/localtime && echo 'Asia/Jakarta'>/etc/timezone
+
 # Never prompt the user for choices on installation/configuration of packages
 ENV DEBIAN_FRONTEND noninteractive
 ENV TERM linux
